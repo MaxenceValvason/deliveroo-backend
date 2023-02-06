@@ -416,6 +416,12 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(3200, () => {
-  console.log("Server started");
-});
+if (process.env.PORT) {
+  app.listen(process.env.PORT, () => {
+    console.log("Server started");
+  });
+} else {
+  app.listen(3200, () => {
+    console.log("Server started");
+  });
+}
